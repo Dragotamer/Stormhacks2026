@@ -65,3 +65,10 @@ sprint={
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+
+[shader_globals]
+
+precision_multiplier={
+"type": "float",
+"value": 0.5
+}

@@ -1,14 +1,35 @@
 [gd_scene format=3 uid="uid://2i40l6ds35ry"]
 
 [ext_resource type="PackedScene" uid="uid://bturoqv2hh2lb" path="res://player.tscn" id="1_c7s6e"]
+[ext_resource type="Texture2D" uid="uid://clmrbjyt7lclb" path="res://WoodenFloor.webp" id="1_e0an3"]
+[ext_resource type="Texture2D" uid="uid://bh0oyo132t6ir" path="res://BeigeWall.jpg" id="2_p5pve"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(20, 0.5, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_urblq"]
+albedo_texture = ExtResource("1_e0an3")
+
 [sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
 size = Vector3(20, 0.5, 20)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iw27f"]
+albedo_texture = ExtResource("2_p5pve")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71pa8"]
+albedo_texture = ExtResource("2_p5pve")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_05x41"]
+albedo_texture = ExtResource("2_p5pve")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gqbix"]
+albedo_texture = ExtResource("2_p5pve")
+
 [node name="Main" type="Node3D" unique_id=1728380272]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1371311248]
+transform = Transform3D(-1.4624082, 0.049667723, 0.014867393, 0.05355938, 0.00015946367, 0.96861166, -1.565635, -0.046387527, 0.019248446, 0, 20.333296, 0)
+shadow_enabled = true
 
 [node name="World" type="Node3D" parent="." unique_id=1962968221]
 
@@ -25,28 +46,33 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
 shape = SubResource("BoxShape3D_g4v7s")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Environment" unique_id=1967298061]
+material_override = SubResource("StandardMaterial3D_urblq")
 mesh = SubResource("BoxMesh_yf5fn")
 
 [node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment" unique_id=2135921311]
 transform = Transform3D(-0.0066889464, -0.99997765, 0, 0.99997765, -0.0066889464, 0, 0, 0, 1, -9.7231655, 10.151389, 0.012099266)
 mesh = SubResource("BoxMesh_yf5fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_iw27f")
 
 [node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment" unique_id=1494730911]
 transform = Transform3D(-0.0066889464, -0.99997765, 0, 0.99997765, -0.0066889464, 0, 0, 0, 1, 9.665868, 10.27964, 0.06617689)
 mesh = SubResource("BoxMesh_yf5fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_71pa8")
 
 [node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment" unique_id=494842330]
 transform = Transform3D(-1.8472692e-05, -0.0027616126, 0.9999962, 0.99997765, -0.0066889464, 0, 0.006688921, 0.99997383, 0.0027616743, 0.047246933, 10.401546, 9.942678)
 mesh = SubResource("BoxMesh_yf5fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_05x41")
 
 [node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment" unique_id=1678916087]
 transform = Transform3D(-1.8472692e-05, -0.0027616126, 0.9999962, 0.99997765, -0.0066889464, 0, 0.006688921, 0.99997383, 0.0027616743, -0.11587119, 10.109075, -9.640276)
 mesh = SubResource("BoxMesh_yf5fn")
+surface_material_override/0 = SubResource("StandardMaterial3D_gqbix")
 
 [node name="WorldManager" type="Node" parent="." unique_id=218387851]
 
 [node name="Player" parent="." unique_id=1147868558 instance=ExtResource("1_c7s6e")]
 
 [node name="AreaLight3D" type="AreaLight3D" parent="." unique_id=1959338835]
-transform = Transform3D(0.9998456, 0.017576618, 0, -0.017221674, 0.97965467, 0.19995084, 0.0035144587, -0.19991992, 0.97980595, 0, 5, 0)
+transform = Transform3D(0.9998455, 0.017576616, 1.4544271e-10, -0.017221672, 0.97965455, 0.1999508, 0.0035144582, -0.1999199, 0.97980595, 0, 18.844797, 0)
 shadow_enabled = true
