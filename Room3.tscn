@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://d05d7xlgqqbok"]
+
+[ext_resource type="Script" uid="uid://cxm45eaxnn6u4" path="res://player.gd" id="1_qypeq"]
+[ext_resource type="ArrayMesh" uid="uid://c4rkl2ole8onh" path="res://UltimateInteriorPack/OBJ/DrumSet1.obj" id="2_6p6yb"]
+[ext_resource type="ArrayMesh" uid="uid://c2gdemllwluyo" path="res://UltimateInteriorPack/OBJ/Mouse1.obj" id="3_5l1rw"]
+[ext_resource type="ArrayMesh" uid="uid://bxi75agnmu8ds" path="res://UltimateInteriorPack/OBJ/SingleBed1.obj" id="4_lmtek"]
+[ext_resource type="ArrayMesh" uid="uid://blif0t7hwe478" path="res://UltimateInteriorPack/OBJ/Spoon1.obj" id="5_0oh0c"]
+[ext_resource type="ArrayMesh" uid="uid://dyi405532d3" path="res://UltimateInteriorPack/OBJ/ThreeSeaterCouch1.obj" id="6_d2g07"]
+[ext_resource type="ArrayMesh" uid="uid://b2uin8jd24dwl" path="res://UltimateInteriorPack/OBJ/CoffeeMachine1.obj" id="7_l4j08"]
+[ext_resource type="ArrayMesh" uid="uid://bb0ddl76cev14" path="res://UltimateInteriorPack/OBJ/Flute1.obj" id="8_yujh6"]
+[ext_resource type="ArrayMesh" uid="uid://chjefy5we2egl" path="res://UltimateInteriorPack/OBJ/Notebook1.obj" id="9_5s0o0"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_6p6yb"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_5l1rw"]
+sky_material = SubResource("ProceduralSkyMaterial_6p6yb")
+
+[sub_resource type="Environment" id="Environment_lmtek"]
+background_mode = 2
+sky = SubResource("Sky_5l1rw")
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_0oh0c"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_d2g07"]
+
+[node name="Room3" type="Node3D" unique_id=243278539]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1882898745]
+environment = SubResource("Environment_lmtek")
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=560879552]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.694729, 0.56153965, 0)
+script = ExtResource("1_qypeq")
+
+[node name="neck" type="Node3D" parent="player" unique_id=565812772]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35966706, 0)
+
+[node name="eyes" type="Camera3D" parent="player/neck" unique_id=1120919684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56153965, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=1840154853]
+mesh = SubResource("CapsuleMesh_0oh0c")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=1794021631]
+shape = SubResource("CapsuleShape3D_d2g07")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=2039713816]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.4935887, 9.540326, 11.4268675)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2" unique_id=1577147028]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -9.959001, -10.074999)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="RoomStart" type="CSGBox3D" parent="CSGBox3D2" unique_id=1443241478]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 3.5527137e-15, -45, -10, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+
+[node name="RoomEnd" type="CSGBox3D" parent="CSGBox3D2" unique_id=1070168547]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 3.5527137e-15, 45, -10, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D2" unique_id=529646009]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.913, -0.035)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2" unique_id=857901085]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0004761219, -9.956466, 10.007032)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=337972346]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.52089, 0)
+light_color = Color(0.77790713, 0.0005217373, 0.78818846, 1)
+light_energy = 10.188
+omni_range = 230.19
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=1977339383]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.263506, 18.52089, 0)
+light_color = Color(0.77790713, 0.0005217373, 0.78818846, 1)
+light_energy = 10.188
+omni_range = 230.19
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="." unique_id=174627858]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.264, 18.521, 0)
+light_color = Color(0.77790713, 0.0005217373, 0.78818846, 1)
+light_energy = 10.188
+omni_range = 230.19
+
+[node name="DrumSet1" type="MeshInstance3D" parent="." unique_id=107314113]
+transform = Transform3D(1.5930598, 0, 1.2091982, 0, 2, 0, -1.2091982, 0, 1.5930598, -16.238297, 0.7283705, -4.3209586)
+mesh = ExtResource("2_6p6yb")
+
+[node name="Mouse1" type="MeshInstance3D" parent="." unique_id=1870809062]
+transform = Transform3D(5.2467947, -9.90947, 16.561207, 17.675312, 9.358597, 0, -7.749483, 14.636226, 11.21278, -23.914633, 2.393918, 6.0843515)
+mesh = ExtResource("3_5l1rw")
+
+[node name="SingleBed1" type="MeshInstance3D" parent="." unique_id=1810488148]
+transform = Transform3D(-1.5853834, -0.31482685, 1.1778979, -1.0364852, 1.3655188, -1.0300761, -0.64207304, -1.4269696, -1.2455921, -0.31055307, 1.8551836, 8.1802635)
+mesh = ExtResource("4_lmtek")
+
+[node name="Spoon1" type="MeshInstance3D" parent="." unique_id=1022722944]
+transform = Transform3D(-19.913246, -15.11498, -6.6069674e-07, 0, -1.0927847e-06, 25, -15.11498, 19.913246, 8.7043566e-07, 14.629953, 5.288516, -5.3149548)
+mesh = ExtResource("5_0oh0c")
+
+[node name="ThreeSeaterCouch1" type="MeshInstance3D" parent="." unique_id=410151703]
+transform = Transform3D(3.982649, 3.4817424e-07, 3.022996, 4.371139e-07, -5, 0, 3.022996, 2.642787e-07, -3.982649, -16.047813, 17.429337, 2.5248523)
+mesh = ExtResource("6_d2g07")
+
+[node name="CoffeeMachine1" type="MeshInstance3D" parent="." unique_id=1774757270]
+transform = Transform3D(-3, -2.6226832e-07, -1.1464113e-14, 0, -1.3113416e-07, 3, -2.6226832e-07, 3, 1.3113416e-07, -8.028811, 5.099672, -6.953983)
+mesh = ExtResource("7_l4j08")
+
+[node name="Flute1" type="MeshInstance3D" parent="." unique_id=1032609590]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 16.46928, 6.4158554, 8.028509)
+mesh = ExtResource("8_yujh6")
+
+[node name="Flute2" type="MeshInstance3D" parent="." unique_id=1748903722]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 22.820457, 6.4158554, 8.028509)
+mesh = ExtResource("8_yujh6")
+
+[node name="Flute3" type="MeshInstance3D" parent="." unique_id=970582489]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 11.675419, 6.4158554, 8.028509)
+mesh = ExtResource("8_yujh6")
+
+[node name="Notebook1" type="MeshInstance3D" parent="." unique_id=1770326305]
+transform = Transform3D(-5.68248e-07, -7.8597894, -10.354889, 0, 10.354889, -7.8597894, 13, -3.435623e-07, -4.5262658e-07, 41.317, 7.225, 0)
+mesh = ExtResource("9_5s0o0")
