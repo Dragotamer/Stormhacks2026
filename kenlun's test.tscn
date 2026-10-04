@@ -11,6 +11,20 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvrgb"]
 albedo_texture = ExtResource("2_v7oym")
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_j6ww4"]
+sky_energy_multiplier = 0.7
+sky_cover = ExtResource("2_v7oym")
+ground_bottom_color = Color(0.865384, 0, 0.5743163, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a0tk4"]
+sky_material = SubResource("ProceduralSkyMaterial_j6ww4")
+
+[sub_resource type="Environment" id="Environment_xlpam"]
+background_mode = 2
+sky = SubResource("Sky_a0tk4")
+glow_enabled = true
+
 [node name="Main" type="Node3D" unique_id=137980140]
 
 [node name="player" type="CharacterBody3D" parent="." unique_id=2046782971]
@@ -68,3 +82,6 @@ texture = ExtResource("2_v7oym")
 [node name="Sprite3D2" type="Sprite3D" parent="CSGCombiner3D" unique_id=1953541049]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.1878667, 9.404188)
 texture = ExtResource("3_j6ww4")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1709118953]
+environment = SubResource("Environment_xlpam")
