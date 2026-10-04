@@ -6,6 +6,10 @@
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_4flbx"]
 
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_onrkg"]
+radius = 0.025
+height = 3.886
+
 [node name="Player" type="CharacterBody3D" unique_id=1147868558]
 script = ExtResource("1_4flbx")
 
@@ -20,3 +24,10 @@ mesh = SubResource("CapsuleMesh_sh265")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=941936641]
 shape = SubResource("CapsuleShape3D_4flbx")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=976977661]
+monitoring = false
+metadata/teleportable_root = NodePath("..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=467267098]
+shape = SubResource("CapsuleShape3D_onrkg")

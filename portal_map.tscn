@@ -1,0 +1,159 @@
+[gd_scene format=3 uid="uid://bedkoebkt154v"]
+
+[ext_resource type="Script" uid="uid://cdmgipu6frla0" path="res://scripts/simple_portal_teleport.gd" id="1_2n3d7"]
+[ext_resource type="Script" uid="uid://cyvmips0kxwv3" path="res://scripts/portal.gd" id="1_wstr8"]
+[ext_resource type="PackedScene" uid="uid://bturoqv2hh2lb" path="res://player.tscn" id="2_2n3d7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(300, 0.01, 300)
+
+[sub_resource type="BoxMesh" id="BoxMesh_d0u6y"]
+size = Vector3(3, 3, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(3, 3, 0)
+
+[sub_resource type="BoxMesh" id="BoxMesh_3gngh"]
+size = Vector3(3, 3, 0)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_57qmd"]
+size = Vector3(3, 3, 0)
+
+[node name="Portal Map" type="Node3D" unique_id=763972258]
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=401611577]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Floor" unique_id=1092579666]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.135269, -1, 13.856689)
+size = Vector3(300, 0.01, 300)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2096395247]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0138245, -1, 0)
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Floor" unique_id=315327808]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.587788, 0.72153187, 45.81727)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=973649610]
+transform = Transform3D(1, 0, 0, 0, -0.022114307, 0.99975544, 0, -0.99975544, -0.022114307, 8.980434, 18.224695, -3.4960175)
+shadow_enabled = true
+
+[node name="Portal A" type="MeshInstance3D" parent="." unique_id=1080599472 node_paths=PackedStringArray("exit_portal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 31.440502, 1.1397028, 0)
+mesh = SubResource("BoxMesh_d0u6y")
+script = ExtResource("1_wstr8")
+vertical_viewport_resolution = 0
+disable_viewport_distance = 500.0
+fade_out_distance_max = 500.0
+fade_out_distance_min = 500.0
+exit_portal = NodePath("../Portal B")
+
+[node name="Area3D" type="Area3D" parent="Portal A" unique_id=18936898]
+monitorable = false
+script = ExtResource("1_2n3d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal A/Area3D" unique_id=668183098]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Portal B" type="MeshInstance3D" parent="." unique_id=1475894212 node_paths=PackedStringArray("exit_portal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.509457, 1.3002281, 0)
+mesh = SubResource("BoxMesh_3gngh")
+script = ExtResource("1_wstr8")
+vertical_viewport_resolution = 0
+disable_viewport_distance = 500.0
+fade_out_distance_max = 500.0
+fade_out_distance_min = 500.0
+exit_portal = NodePath("../Portal A")
+
+[node name="Area3D" type="Area3D" parent="Portal B" unique_id=780113658]
+monitorable = false
+script = ExtResource("1_2n3d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal B/Area3D" unique_id=1238676026]
+shape = SubResource("BoxShape3D_57qmd")
+
+[node name="small room" type="CSGBox3D" parent="." unique_id=1426694813]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.690945, 1.6097541, 2.6393585)
+size = Vector3(5, 5, 5)
+
+[node name="Player" parent="." unique_id=1147868558 instance=ExtResource("2_2n3d7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.963493, 0.8686743, -4.974993)
+
+[node name="big room wall 1" type="CSGBox3D" parent="." unique_id=2131521606]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.234568, 4.01414, 0.70490074)
+size = Vector3(36.643066, 10, 0)
+
+[node name="brw2" type="CSGBox3D" parent="." unique_id=1560030910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.080811, 4.33374, -20.103573)
+size = Vector3(36.16162, 11.33252, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=178655430]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.846487, 3.5662518, -8.515127)
+size = Vector3(0, 13.900269, 24.645752)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D" unique_id=1499957361]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.927685, -1.2236834, -2.0876827)
+size = Vector3(0, 13.900269, 24.645752)
+
+[node name="Portal1" type="MeshInstance3D" parent="." unique_id=1680907208 node_paths=PackedStringArray("exit_portal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6648445, 1.1397028, -0.21875381)
+mesh = SubResource("BoxMesh_d0u6y")
+script = ExtResource("1_wstr8")
+vertical_viewport_resolution = 0
+disable_viewport_distance = 500.0
+fade_out_distance_max = 500.0
+fade_out_distance_min = 500.0
+exit_portal = NodePath("../Portal2")
+
+[node name="Area3D" type="Area3D" parent="Portal1" unique_id=581826202]
+monitorable = false
+script = ExtResource("1_2n3d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal1/Area3D" unique_id=37692107]
+visible = false
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Portal2" type="MeshInstance3D" parent="." unique_id=1571753225 node_paths=PackedStringArray("exit_portal")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.506748, 1.1397028, 38.868446)
+mesh = SubResource("BoxMesh_d0u6y")
+script = ExtResource("1_wstr8")
+vertical_viewport_resolution = 0
+disable_viewport_distance = 500.0
+fade_out_distance_max = 500.0
+fade_out_distance_min = 500.0
+exit_portal = NodePath("../Portal1")
+
+[node name="Area3D" type="Area3D" parent="Portal2" unique_id=1068239712]
+monitorable = false
+script = ExtResource("1_2n3d7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portal2/Area3D" unique_id=1211646591]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=954715307]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.846487, 3.5662518, -8.515127)
+size = Vector3(0, 13.900269, 24.645752)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2" unique_id=132220000]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.320576, -1.2236834, 50.95331)
+size = Vector3(0, 13.900269, 24.645752)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2/CSGBox3D" unique_id=1728005393]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25.355013, -3.3244457, 1.4017143)
+size = Vector3(0, 13.900269, 24.645752)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2/CSGBox3D/CSGBox3D" unique_id=967684680]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.927685, -1.2236834, -2.0876827)
+size = Vector3(0, 13.900269, 24.645752)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=152202257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16.354717, -0.09201622, 30.241299)
+size = Vector3(29.263672, 20, 0)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D3" unique_id=36271246]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.666946, -1.8923931, 32.23965)
+size = Vector3(29.263672, 20, 0)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D3" unique_id=1597421296]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29727173, 4.775509, 11.253422)
+size = Vector3(11.844788, 11.943237, 0)
