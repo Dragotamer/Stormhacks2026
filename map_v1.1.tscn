@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://dy81jhlghvu2i"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+size = Vector3(10, 0.1, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(10, 0.1, 10)
+
+[node name="Main" type="Node3D" unique_id=1267361928]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=841276602]
+mesh = SubResource("BoxMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D" unique_id=1171887539]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=556018948]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1432447828]
+size = Vector3(10, 8, 10)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1986861887]
+operation = 2
+size = Vector3(8, 8, 8)
