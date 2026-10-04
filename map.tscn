@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://2i40l6ds35ry"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
+size = Vector3(2, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3gngh"]
+size = Vector3(2, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d0u6y"]
+size = Vector3(2, 3, 0.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_yf5fn"]
+size = Vector3(20, 0.5, 20)
+
+[node name="Main" type="Node3D" unique_id=1728380272]
+
+[node name="World" type="Node3D" parent="." unique_id=1962968221]
+
+[node name="Room_A" type="Node3D" parent="World" unique_id=1346083267]
+
+[node name="Room_B" type="Node3D" parent="World" unique_id=142925660]
+
+[node name="Room_C" type="Node3D" parent="World" unique_id=1830047651]
+
+[node name="Portals" type="Node3D" parent="." unique_id=1595292705]
+
+[node name="Portal_A" type="Area3D" parent="Portals" unique_id=249184398]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portals/Portal_A" unique_id=1308334600]
+shape = SubResource("BoxShape3D_yf5fn")
+
+[node name="Camera3D" type="Camera3D" parent="Portals/Portal_A" unique_id=2111272534]
+
+[node name="Portal_B" type="Area3D" parent="Portals" unique_id=133294518]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portals/Portal_B" unique_id=1356829130]
+shape = SubResource("BoxShape3D_3gngh")
+
+[node name="Camera3D" type="Camera3D" parent="Portals/Portal_B" unique_id=101029517]
+
+[node name="Portal_C" type="Area3D" parent="Portals" unique_id=1710313602]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Portals/Portal_C" unique_id=1037036459]
+shape = SubResource("BoxShape3D_d0u6y")
+disabled = true
+
+[node name="Camera3D" type="Camera3D" parent="Portals/Portal_C" unique_id=1599076508]
+
+[node name="Environment" type="StaticBody3D" parent="." unique_id=1006226324]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Environment" unique_id=1937100826]
+shape = SubResource("BoxShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Environment" unique_id=1967298061]
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Environment" unique_id=2135921311]
+transform = Transform3D(-0.0066889464, -0.99997765, 0, 0.99997765, -0.0066889464, 0, 0, 0, 1, -9.7231655, 10.151389, 0.012099266)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="Environment" unique_id=1494730911]
+transform = Transform3D(-0.0066889464, -0.99997765, 0, 0.99997765, -0.0066889464, 0, 0, 0, 1, 9.665868, 10.27964, 0.06617689)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Environment" unique_id=494842330]
+transform = Transform3D(-1.8472692e-05, -0.0027616126, 0.9999962, 0.99997765, -0.0066889464, 0, 0.006688921, 0.99997383, 0.0027616743, 0.047246933, 10.401546, 9.942678)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="MeshInstance3D5" type="MeshInstance3D" parent="Environment" unique_id=1678916087]
+transform = Transform3D(-1.8472692e-05, -0.0027616126, 0.9999962, 0.99997765, -0.0066889464, 0, 0.006688921, 0.99997383, 0.0027616743, -0.11587119, 10.109075, -9.640276)
+mesh = SubResource("BoxMesh_yf5fn")
+
+[node name="WorldManager" type="Node" parent="." unique_id=218387851]
