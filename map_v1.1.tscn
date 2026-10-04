@@ -1,24 +1,41 @@
 [gd_scene format=3 uid="uid://dy81jhlghvu2i"]
 
+[ext_resource type="Texture2D" uid="uid://jn2si14705ih" path="res://backrooms-textures-map-result-image-v0-cn40k99826b91.webp" id="1_r6exx"]
+[ext_resource type="Texture2D" uid="uid://bfsia4fvfdwux" path="res://Wallpaper.jpg" id="2_ixbml"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_32713"]
+albedo_texture = ExtResource("1_r6exx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0xsty"]
+uv1_scale = Vector3(12, 12, 12)
+uv2_scale = Vector3(12, 12, 12)
+
 [sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_0xsty")
 size = Vector3(10, 0.1, 10)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_yf5fn"]
 size = Vector3(10, 0.1, 10)
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_edvau"]
+albedo_texture = ExtResource("2_ixbml")
+
 [node name="Main" type="Node3D" unique_id=1267361928]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=841276602]
+material_override = SubResource("StandardMaterial3D_32713")
 mesh = SubResource("BoxMesh_g4v7s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D" unique_id=1171887539]
 shape = SubResource("BoxShape3D_yf5fn")
 
 [node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=556018948]
+material_override = SubResource("StandardMaterial3D_edvau")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1432447828]
 size = Vector3(10, 8, 10)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1986861887]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.22500068, 0.069900274, 0.08807126)
 operation = 2
 size = Vector3(8, 8, 8)
