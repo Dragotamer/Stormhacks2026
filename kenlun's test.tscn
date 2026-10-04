@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://da8i73rjrvuic"]
+
+[ext_resource type="Script" uid="uid://cxm45eaxnn6u4" path="res://player.gd" id="1_75y70"]
+[ext_resource type="Texture2D" uid="uid://bte778wpqds2r" path="res://10523562_20201125112514_org.jpg" id="2_v7oym"]
+[ext_resource type="Texture2D" uid="uid://dikmos5uah4vh" path="res://dm_230611_dm_ufc_mallott_finish_pub2tag.jpg" id="3_j6ww4"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_g4v7s"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yf5fn"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvrgb"]
+albedo_texture = ExtResource("2_v7oym")
+
+[node name="Main" type="Node3D" unique_id=137980140]
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=2046782971]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.4692935, 0)
+script = ExtResource("1_75y70")
+
+[node name="neck" type="Node3D" parent="player" unique_id=653090545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35966706, 0)
+
+[node name="eyes" type="Camera3D" parent="player/neck" unique_id=243522834]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56153965, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=1747958277]
+mesh = SubResource("CapsuleMesh_g4v7s")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=2049324808]
+shape = SubResource("CapsuleShape3D_yf5fn")
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="." unique_id=639274145]
+use_collision = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D" unique_id=896833731]
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = SubResource("StandardMaterial3D_mvrgb")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D" unique_id=1531048206]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.75, -9.75)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = SubResource("StandardMaterial3D_mvrgb")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D" unique_id=466965475]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, -9.75, 9.75, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = SubResource("StandardMaterial3D_mvrgb")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D" unique_id=708441247]
+transform = Transform3D(-4.371139e-08, -1, -4.371139e-08, 0, -4.371139e-08, 1, -1, 4.371139e-08, 1.9106855e-15, 9.75, 9.75, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = SubResource("StandardMaterial3D_mvrgb")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D" unique_id=140999636]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9.75, 9.75)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+material = SubResource("StandardMaterial3D_mvrgb")
+
+[node name="Sprite3D" type="Sprite3D" parent="CSGCombiner3D" unique_id=1877310935]
+transform = Transform3D(1.2, 0, 0, 0, 1.2, 0, 0, 0, 1.2, 0, 8, -9.4)
+texture = ExtResource("2_v7oym")
+
+[node name="Sprite3D2" type="Sprite3D" parent="CSGCombiner3D" unique_id=1953541049]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6.1878667, 9.404188)
+texture = ExtResource("3_j6ww4")
