@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://0g2saa6vr642"]
+
+[ext_resource type="Script" uid="uid://cxm45eaxnn6u4" path="res://player.gd" id="1_8mopa"]
+[ext_resource type="ArrayMesh" uid="uid://dof1wvb7ddlum" path="res://UltimateInteriorPack/OBJ/AirFryer1.obj" id="2_uigq4"]
+[ext_resource type="ArrayMesh" uid="uid://bvw0d7qlcwh6o" path="res://UltimateInteriorPack/OBJ/ClubArmChair1.obj" id="3_r5436"]
+[ext_resource type="ArrayMesh" uid="uid://bn0ke7kt7mirk" path="res://UltimateInteriorPack/OBJ/BassSpeakers1.obj" id="4_6wlgw"]
+[ext_resource type="ArrayMesh" uid="uid://dsohqy74o5pgb" path="res://UltimateInteriorPack/OBJ/SingleDoorBaseCabinetWDrawer1.obj" id="5_6wlgw"]
+[ext_resource type="ArrayMesh" uid="uid://bknf8sa6vc8yx" path="res://UltimateInteriorPack/OBJ/TopFridge1.obj" id="6_vfumt"]
+[ext_resource type="ArrayMesh" uid="uid://cv4tlgoc0m01h" path="res://UltimateInteriorPack/OBJ/ExecutiveDesk1.obj" id="7_ekp6o"]
+[ext_resource type="ArrayMesh" uid="uid://c3csctkmjkbyo" path="res://UltimateInteriorPack/OBJ/ExecutiveChair1.obj" id="8_2vxxu"]
+[ext_resource type="ArrayMesh" uid="uid://dgmv5dy21q0ti" path="res://UltimateInteriorPack/OBJ/PunchingBag1.obj" id="9_2vxxu"]
+[ext_resource type="ArrayMesh" uid="uid://cr8xrl8kh3fsu" path="res://UltimateInteriorPack/OBJ/Ruler1.obj" id="10_hfud4"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uigq4"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_a0tk4"]
+sky_material = SubResource("ProceduralSkyMaterial_uigq4")
+
+[sub_resource type="Environment" id="Environment_e7hwi"]
+background_mode = 2
+sky = SubResource("Sky_a0tk4")
+glow_enabled = true
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_r5436"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6wlgw"]
+
+[node name="Room2" type="Node3D" unique_id=1797510881]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1317474417]
+environment = SubResource("Environment_e7hwi")
+
+[node name="player" type="CharacterBody3D" parent="." unique_id=1728755798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.694366, 0.56153965, 0)
+script = ExtResource("1_8mopa")
+
+[node name="neck" type="Node3D" parent="player" unique_id=606352917]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35966706, 0)
+
+[node name="eyes" type="Camera3D" parent="player/neck" unique_id=235976817]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56153965, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=756400289]
+mesh = SubResource("CapsuleMesh_r5436")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=639730011]
+shape = SubResource("CapsuleShape3D_6wlgw")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=66814829]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -1.4935887, 9.540326, 11.4268675)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGBox3D2" unique_id=1620998337]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -9.959001, -10.074999)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="RoomStart" type="CSGBox3D" parent="CSGBox3D2" unique_id=1977843681]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 3.5527137e-15, -45, -10, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+
+[node name="RoomEnd" type="CSGBox3D" parent="CSGBox3D2" unique_id=848602382]
+transform = Transform3D(-4.371139e-08, 1, -4.371139e-08, 0, -4.371139e-08, -1, -1, -4.371139e-08, 3.5527137e-15, 45, -10, 0)
+use_collision = true
+size = Vector3(20, 0.5, 20)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGBox3D2" unique_id=666584476]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -19.913, -0.035)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGBox3D2" unique_id=984108881]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.0004761219, -9.956466, 10.007032)
+use_collision = true
+size = Vector3(90, 0.086, 20)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=807606601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 18.52089, 0)
+light_color = Color(0.54374874, 0.37678507, 0.17503756, 1)
+light_energy = 16.0
+shadow_enabled = true
+omni_range = 75.726
+
+[node name="AirFryer1" type="MeshInstance3D" parent="." unique_id=1737210374]
+transform = Transform3D(5, 0, 0, 0, 4.8833613, -1.0736766, 0, 1.0736766, 4.8833613, -14.40719, 7.794412, -7.2860737)
+mesh = ExtResource("2_uigq4")
+
+[node name="ClubArmChair1" type="MeshInstance3D" parent="." unique_id=66063708]
+transform = Transform3D(-3.2216454, 0.3499827, 3.8076913, 0.53999674, 4.9707546, 0, -3.7854197, 0.4112282, -3.2405999, -11.906, 1, 8.48)
+mesh = ExtResource("3_r5436")
+
+[node name="BassSpeakers1" type="MeshInstance3D" parent="." unique_id=879832784]
+transform = Transform3D(4.4597344, -3.3974078, -8.280603, 6.0598845, 7.954735, 0, 6.587, -5.01795, 5.60639, 3.365, 7, -3.973)
+mesh = ExtResource("4_6wlgw")
+
+[node name="SingleDoorBaseCabinetWDrawer1" type="MeshInstance3D" parent="." unique_id=829492974]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -39.29463, 3.5704012, 2.371076)
+mesh = ExtResource("5_6wlgw")
+
+[node name="TopFridge1" type="MeshInstance3D" parent="." unique_id=823516438]
+transform = Transform3D(2.828427, 0, -2.828427, 0, 4, 0, 2.828427, 0, 2.828427, 28.45759, 15, -5.508807)
+mesh = ExtResource("6_vfumt")
+
+[node name="ExecutiveDesk1" type="MeshInstance3D" parent="." unique_id=638478760]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 30.44854, -0.431803, 9.694857)
+mesh = ExtResource("7_ekp6o")
+
+[node name="ExecutiveChair1" type="MeshInstance3D" parent="." unique_id=1992838858]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 31.062237, 0.63970447, 6.325864)
+mesh = ExtResource("8_2vxxu")
+
+[node name="PunchingBag1" type="MeshInstance3D" parent="." unique_id=766876944]
+transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 39.130665, 3.1792388, -6.3012624)
+mesh = ExtResource("9_2vxxu")
+
+[node name="Ruler1" type="MeshInstance3D" parent="." unique_id=1198889061]
+transform = Transform3D(15.930597, 0, 12.091982, 0, 20, 0, -12.091982, 0, 15.930597, -4.752, 0, 0.002)
+mesh = ExtResource("10_hfud4")
