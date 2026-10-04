@@ -36,10 +36,14 @@ size = Vector3(9.082397, 0.0859375, 7.794922)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56153965, 0)
 script = ExtResource("1_a202f")
 
+[node name="neck" type="Node3D" parent="player" unique_id=446100553]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35966706, 0)
+
+[node name="eyes" type="Camera3D" parent="player/neck" unique_id=1988044179]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.56153965, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="player" unique_id=1405434058]
 mesh = SubResource("CapsuleMesh_g4v7s")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player" unique_id=1652456810]
 shape = SubResource("CapsuleShape3D_yf5fn")
-
-[node name="Camera3D" type="Camera3D" parent="player" unique_id=1988044179]
